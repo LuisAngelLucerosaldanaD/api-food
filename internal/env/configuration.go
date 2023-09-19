@@ -27,6 +27,7 @@ type App struct {
 	Language          string `json:"language"`
 	TLS               bool   `json:"tls"`
 	Cert              string `json:"cert"`
+	Key               string `json:"key"`
 }
 
 type DB struct {
