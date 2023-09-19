@@ -52,7 +52,7 @@ func connectionString() string {
 
 	switch strings.ToLower(c.DB.Engine) {
 	case "postgres":
-		return fmt.Sprintf("dbname=%s user=%s password=%s host=%s port=%d sslmode=disable", database, username, password, host, port)
+		return fmt.Sprintf("postgres://%s:%s@%s/%s", username, password, host, database)
 	case "sqlserver":
 		return fmt.Sprintf(
 			"server=%s\\%s;User id=%s;database=%s;password=%s;port=%d", host, instance, username, database, password, port)
