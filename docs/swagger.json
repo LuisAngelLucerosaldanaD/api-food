@@ -1,0 +1,1096 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Api para la gestión de la comida y recetas",
+        "title": "API FOOD",
+        "termsOfService": "https://www.bjungle.net/terms/",
+        "contact": {
+            "name": "API Support",
+            "email": "luis.lucero@bjungle.net"
+        },
+        "license": {
+            "name": "Software Owner",
+            "url": "https://www.bjungle.net/terms/licenses"
+        },
+        "version": "1.4"
+    },
+    "host": "172.147.77.149:5050",
+    "basePath": "/",
+    "paths": {
+        "/api/v1/user/category": {
+            "put": {
+                "description": "Método que permite actualizar una categoría de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Método que permite actualizar una categoría de comida",
+                "parameters": [
+                    {
+                        "description": "Datos de la categoría",
+                        "name": "RequestUpdateCategory",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/category.RequestUpdateCategory"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/category.ResponseCategory"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Método que permite crear una categoría de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Método que permite crear una categoría de comida",
+                "parameters": [
+                    {
+                        "description": "Datos de la categoría",
+                        "name": "RequestCategory",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/category.RequestCategory"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/category.ResponseCategory"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/category/all": {
+            "get": {
+                "description": "Método que permite obtener todas las categorías de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Método que permite obtener todas las categorías de comida",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/category.ResponseAllCategory"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/category/{id}": {
+            "get": {
+                "description": "Método que permite obtener una categoría de comida por su id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Método que permite obtener una categoría de comida por su id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Id de la categoría",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/category.ResponseCategory"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Método que permite borrar una categoría de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Category"
+                ],
+                "summary": "Método que permite borrar una categoría de comida",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Id de la categoría",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/category.ResponseAnny"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/ingredient": {
+            "put": {
+                "description": "Método que permite actualizar un ingrediente de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Ingredient"
+                ],
+                "summary": "Método que permite actualizar un ingrediente de comida",
+                "parameters": [
+                    {
+                        "description": "Datos del ingrediente",
+                        "name": "RequestUpdateIngredient",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ingredient.RequestUpdateIngredient"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ingredient.ResponseIngredient"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Método que permite crear un ingrediente de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Ingredient"
+                ],
+                "summary": "Método que permite crear un ingrediente de comida",
+                "parameters": [
+                    {
+                        "description": "Datos del ingrediente",
+                        "name": "RequestIngredient",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ingredient.RequestIngredient"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ingredient.ResponseIngredient"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/ingredient/all": {
+            "get": {
+                "description": "Método que permite obtener todos los ingredientes de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Ingredient"
+                ],
+                "summary": "Método que permite obtener todos los ingredientes de comida",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ingredient.ResponseAllIngredients"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/ingredient/{id}": {
+            "get": {
+                "description": "Método que permite obtener un ingrediente de comida por su id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Ingredient"
+                ],
+                "summary": "Método que permite obtener un ingrediente de comida por su id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Id del ingrediente",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ingredient.ResponseIngredient"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Método que permite borrar un ingrediente de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Ingredient"
+                ],
+                "summary": "Método que permite borrar un ingrediente de comida",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Id del ingrediente",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ingredient.ResponseAnny"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/product": {
+            "put": {
+                "description": "Método que permite actualizar un producto de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Método que permite actualizar un producto de comida",
+                "parameters": [
+                    {
+                        "description": "Datos del producto",
+                        "name": "RequestUpdateProduct",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/product.RequestUpdateProduct"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/product.ResponseProduct"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Método que permite crear un producto de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Método que permite crear un producto de comida",
+                "parameters": [
+                    {
+                        "description": "Datos de el producto",
+                        "name": "RequestProduct",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/product.RequestProduct"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/product.ResponseProduct"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/product/all": {
+            "get": {
+                "description": "Método que permite obtener todos los productos de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Método que permite obtener todos los productos de comida",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/product.ResponseAllProducts"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/product/{id}": {
+            "get": {
+                "description": "Método que permite obtener un producto de comida por su id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Método que permite obtener un producto de comida por su id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Id del producto",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/product.ResponseProduct"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Método que permite borrar un producto de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Método que permite borrar un producto de comida",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Id del producto",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/product.ResponseAnny"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/rol": {
+            "put": {
+                "description": "Método que permite actualizar un rol de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Rol"
+                ],
+                "summary": "Método que permite actualizar un rol de comida",
+                "parameters": [
+                    {
+                        "description": "Datos del rol",
+                        "name": "RequestUpdateRol",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/rol.RequestUpdateRol"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/rol.ResponseRol"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Método que permite crear un rol de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Rol"
+                ],
+                "summary": "Método que permite crear un rol de comida",
+                "parameters": [
+                    {
+                        "description": "Datos del rol",
+                        "name": "RequestRol",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/rol.RequestRol"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/rol.ResponseRol"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/rol/all": {
+            "get": {
+                "description": "Método que permite obtener todas las categorías de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Rol"
+                ],
+                "summary": "Método que permite obtener todas las categorías de comida",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/rol.ResponseAllRol"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/rol/{id}": {
+            "get": {
+                "description": "Método que permite obtener un rol de comida por su id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Rol"
+                ],
+                "summary": "Método que permite obtener un rol de comida por su id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Id del rol",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/rol.ResponseRol"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Método que permite borrar un rol de comida",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Rol"
+                ],
+                "summary": "Método que permite borrar un rol de comida",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Id del rol",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/rol.ResponseAnny"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "category.Category": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "role_id": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "category.RequestCategory": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "role_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "category.RequestUpdateCategory": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "role_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "category.ResponseAllCategory": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/category.Category"
+                    }
+                },
+                "error": {
+                    "type": "boolean"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "category.ResponseAnny": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "error": {
+                    "type": "boolean"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "category.ResponseCategory": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/category.Category"
+                },
+                "error": {
+                    "type": "boolean"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "ingredient.Ingredient": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "id_product": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "ingredient.RequestIngredient": {
+            "type": "object",
+            "properties": {
+                "id_product": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "ingredient.RequestUpdateIngredient": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "id_product": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "ingredient.ResponseAllIngredients": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ingredient.Ingredient"
+                    }
+                },
+                "error": {
+                    "type": "boolean"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "ingredient.ResponseAnny": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "error": {
+                    "type": "boolean"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "ingredient.ResponseIngredient": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/ingredient.Ingredient"
+                },
+                "error": {
+                    "type": "boolean"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "product.Product": {
+            "type": "object",
+            "properties": {
+                "calorie": {
+                    "type": "string"
+                },
+                "category_id": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "url_img": {
+                    "type": "string"
+                }
+            }
+        },
+        "product.RequestProduct": {
+            "type": "object",
+            "properties": {
+                "calorie": {
+                    "type": "string"
+                },
+                "category_id": {
+                    "type": "integer"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "url_img": {
+                    "type": "string"
+                }
+            }
+        },
+        "product.RequestUpdateProduct": {
+            "type": "object",
+            "properties": {
+                "calorie": {
+                    "type": "string"
+                },
+                "category_id": {
+                    "type": "integer"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "url_img": {
+                    "type": "string"
+                }
+            }
+        },
+        "product.ResponseAllProducts": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/product.Product"
+                    }
+                },
+                "error": {
+                    "type": "boolean"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "product.ResponseAnny": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "error": {
+                    "type": "boolean"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "product.ResponseProduct": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/product.Product"
+                },
+                "error": {
+                    "type": "boolean"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "rol.RequestRol": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "rol.RequestUpdateRol": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "rol.ResponseAllRol": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/rol.Rol"
+                    }
+                },
+                "error": {
+                    "type": "boolean"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "rol.ResponseAnny": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "error": {
+                    "type": "boolean"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "rol.ResponseRol": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/rol.Rol"
+                },
+                "error": {
+                    "type": "boolean"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "rol.Rol": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "description": "Métodos referentes a las categorías de las comidas",
+            "name": "Category"
+        },
+        {
+            "description": "Métodos referentes a los ingredientes de las comidas",
+            "name": "Ingredient"
+        },
+        {
+            "description": "Métodos referentes a los productos",
+            "name": "Product"
+        },
+        {
+            "description": "Métodos referentes a los roles en las recetas",
+            "name": "Rol"
+        }
+    ]
+}

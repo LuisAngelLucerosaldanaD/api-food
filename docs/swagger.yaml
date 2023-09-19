@@ -1,0 +1,715 @@
+basePath: /
+definitions:
+  category.Category:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      role_id:
+        type: integer
+      updated_at:
+        type: string
+    type: object
+  category.RequestCategory:
+    properties:
+      name:
+        type: string
+      role_id:
+        type: integer
+    type: object
+  category.RequestUpdateCategory:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      role_id:
+        type: integer
+    type: object
+  category.ResponseAllCategory:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/category.Category'
+        type: array
+      error:
+        type: boolean
+      msg:
+        type: string
+      type:
+        type: integer
+    type: object
+  category.ResponseAnny:
+    properties:
+      code:
+        type: integer
+      data: {}
+      error:
+        type: boolean
+      msg:
+        type: string
+      type:
+        type: integer
+    type: object
+  category.ResponseCategory:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/category.Category'
+      error:
+        type: boolean
+      msg:
+        type: string
+      type:
+        type: integer
+    type: object
+  ingredient.Ingredient:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      id_product:
+        type: integer
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  ingredient.RequestIngredient:
+    properties:
+      id_product:
+        type: integer
+      name:
+        type: string
+    type: object
+  ingredient.RequestUpdateIngredient:
+    properties:
+      id:
+        type: integer
+      id_product:
+        type: integer
+      name:
+        type: string
+    type: object
+  ingredient.ResponseAllIngredients:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/ingredient.Ingredient'
+        type: array
+      error:
+        type: boolean
+      msg:
+        type: string
+      type:
+        type: integer
+    type: object
+  ingredient.ResponseAnny:
+    properties:
+      code:
+        type: integer
+      data: {}
+      error:
+        type: boolean
+      msg:
+        type: string
+      type:
+        type: integer
+    type: object
+  ingredient.ResponseIngredient:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/ingredient.Ingredient'
+      error:
+        type: boolean
+      msg:
+        type: string
+      type:
+        type: integer
+    type: object
+  product.Product:
+    properties:
+      calorie:
+        type: string
+      category_id:
+        type: integer
+      created_at:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      time:
+        type: string
+      updated_at:
+        type: string
+      url_img:
+        type: string
+    type: object
+  product.RequestProduct:
+    properties:
+      calorie:
+        type: string
+      category_id:
+        type: integer
+      description:
+        type: string
+      name:
+        type: string
+      time:
+        type: string
+      url_img:
+        type: string
+    type: object
+  product.RequestUpdateProduct:
+    properties:
+      calorie:
+        type: string
+      category_id:
+        type: integer
+      description:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      time:
+        type: string
+      url_img:
+        type: string
+    type: object
+  product.ResponseAllProducts:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/product.Product'
+        type: array
+      error:
+        type: boolean
+      msg:
+        type: string
+      type:
+        type: integer
+    type: object
+  product.ResponseAnny:
+    properties:
+      code:
+        type: integer
+      data: {}
+      error:
+        type: boolean
+      msg:
+        type: string
+      type:
+        type: integer
+    type: object
+  product.ResponseProduct:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/product.Product'
+      error:
+        type: boolean
+      msg:
+        type: string
+      type:
+        type: integer
+    type: object
+  rol.RequestRol:
+    properties:
+      name:
+        type: string
+    type: object
+  rol.RequestUpdateRol:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  rol.ResponseAllRol:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/rol.Rol'
+        type: array
+      error:
+        type: boolean
+      msg:
+        type: string
+      type:
+        type: integer
+    type: object
+  rol.ResponseAnny:
+    properties:
+      code:
+        type: integer
+      data: {}
+      error:
+        type: boolean
+      msg:
+        type: string
+      type:
+        type: integer
+    type: object
+  rol.ResponseRol:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/rol.Rol'
+      error:
+        type: boolean
+      msg:
+        type: string
+      type:
+        type: integer
+    type: object
+  rol.Rol:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+host: 172.147.77.149:5050
+info:
+  contact:
+    email: luis.lucero@bjungle.net
+    name: API Support
+  description: Api para la gestión de la comida y recetas
+  license:
+    name: Software Owner
+    url: https://www.bjungle.net/terms/licenses
+  termsOfService: https://www.bjungle.net/terms/
+  title: API FOOD
+  version: "1.4"
+paths:
+  /api/v1/user/category:
+    post:
+      consumes:
+      - application/json
+      description: Método que permite crear una categoría de comida
+      parameters:
+      - description: Datos de la categoría
+        in: body
+        name: RequestCategory
+        required: true
+        schema:
+          $ref: '#/definitions/category.RequestCategory'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/category.ResponseCategory'
+      summary: Método que permite crear una categoría de comida
+      tags:
+      - Category
+    put:
+      consumes:
+      - application/json
+      description: Método que permite actualizar una categoría de comida
+      parameters:
+      - description: Datos de la categoría
+        in: body
+        name: RequestUpdateCategory
+        required: true
+        schema:
+          $ref: '#/definitions/category.RequestUpdateCategory'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/category.ResponseCategory'
+      summary: Método que permite actualizar una categoría de comida
+      tags:
+      - Category
+  /api/v1/user/category/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Método que permite borrar una categoría de comida
+      parameters:
+      - description: Id de la categoría
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/category.ResponseAnny'
+      summary: Método que permite borrar una categoría de comida
+      tags:
+      - Category
+    get:
+      consumes:
+      - application/json
+      description: Método que permite obtener una categoría de comida por su id
+      parameters:
+      - description: Id de la categoría
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/category.ResponseCategory'
+      summary: Método que permite obtener una categoría de comida por su id
+      tags:
+      - Category
+  /api/v1/user/category/all:
+    get:
+      consumes:
+      - application/json
+      description: Método que permite obtener todas las categorías de comida
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/category.ResponseAllCategory'
+      summary: Método que permite obtener todas las categorías de comida
+      tags:
+      - Category
+  /api/v1/user/ingredient:
+    post:
+      consumes:
+      - application/json
+      description: Método que permite crear un ingrediente de comida
+      parameters:
+      - description: Datos del ingrediente
+        in: body
+        name: RequestIngredient
+        required: true
+        schema:
+          $ref: '#/definitions/ingredient.RequestIngredient'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ingredient.ResponseIngredient'
+      summary: Método que permite crear un ingrediente de comida
+      tags:
+      - Ingredient
+    put:
+      consumes:
+      - application/json
+      description: Método que permite actualizar un ingrediente de comida
+      parameters:
+      - description: Datos del ingrediente
+        in: body
+        name: RequestUpdateIngredient
+        required: true
+        schema:
+          $ref: '#/definitions/ingredient.RequestUpdateIngredient'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ingredient.ResponseIngredient'
+      summary: Método que permite actualizar un ingrediente de comida
+      tags:
+      - Ingredient
+  /api/v1/user/ingredient/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Método que permite borrar un ingrediente de comida
+      parameters:
+      - description: Id del ingrediente
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ingredient.ResponseAnny'
+      summary: Método que permite borrar un ingrediente de comida
+      tags:
+      - Ingredient
+    get:
+      consumes:
+      - application/json
+      description: Método que permite obtener un ingrediente de comida por su id
+      parameters:
+      - description: Id del ingrediente
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ingredient.ResponseIngredient'
+      summary: Método que permite obtener un ingrediente de comida por su id
+      tags:
+      - Ingredient
+  /api/v1/user/ingredient/all:
+    get:
+      consumes:
+      - application/json
+      description: Método que permite obtener todos los ingredientes de comida
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ingredient.ResponseAllIngredients'
+      summary: Método que permite obtener todos los ingredientes de comida
+      tags:
+      - Ingredient
+  /api/v1/user/product:
+    post:
+      consumes:
+      - application/json
+      description: Método que permite crear un producto de comida
+      parameters:
+      - description: Datos de el producto
+        in: body
+        name: RequestProduct
+        required: true
+        schema:
+          $ref: '#/definitions/product.RequestProduct'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/product.ResponseProduct'
+      summary: Método que permite crear un producto de comida
+      tags:
+      - Product
+    put:
+      consumes:
+      - application/json
+      description: Método que permite actualizar un producto de comida
+      parameters:
+      - description: Datos del producto
+        in: body
+        name: RequestUpdateProduct
+        required: true
+        schema:
+          $ref: '#/definitions/product.RequestUpdateProduct'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/product.ResponseProduct'
+      summary: Método que permite actualizar un producto de comida
+      tags:
+      - Product
+  /api/v1/user/product/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Método que permite borrar un producto de comida
+      parameters:
+      - description: Id del producto
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/product.ResponseAnny'
+      summary: Método que permite borrar un producto de comida
+      tags:
+      - Product
+    get:
+      consumes:
+      - application/json
+      description: Método que permite obtener un producto de comida por su id
+      parameters:
+      - description: Id del producto
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/product.ResponseProduct'
+      summary: Método que permite obtener un producto de comida por su id
+      tags:
+      - Product
+  /api/v1/user/product/all:
+    get:
+      consumes:
+      - application/json
+      description: Método que permite obtener todos los productos de comida
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/product.ResponseAllProducts'
+      summary: Método que permite obtener todos los productos de comida
+      tags:
+      - Product
+  /api/v1/user/rol:
+    post:
+      consumes:
+      - application/json
+      description: Método que permite crear un rol de comida
+      parameters:
+      - description: Datos del rol
+        in: body
+        name: RequestRol
+        required: true
+        schema:
+          $ref: '#/definitions/rol.RequestRol'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/rol.ResponseRol'
+      summary: Método que permite crear un rol de comida
+      tags:
+      - Rol
+    put:
+      consumes:
+      - application/json
+      description: Método que permite actualizar un rol de comida
+      parameters:
+      - description: Datos del rol
+        in: body
+        name: RequestUpdateRol
+        required: true
+        schema:
+          $ref: '#/definitions/rol.RequestUpdateRol'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/rol.ResponseRol'
+      summary: Método que permite actualizar un rol de comida
+      tags:
+      - Rol
+  /api/v1/user/rol/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Método que permite borrar un rol de comida
+      parameters:
+      - description: Id del rol
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/rol.ResponseAnny'
+      summary: Método que permite borrar un rol de comida
+      tags:
+      - Rol
+    get:
+      consumes:
+      - application/json
+      description: Método que permite obtener un rol de comida por su id
+      parameters:
+      - description: Id del rol
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/rol.ResponseRol'
+      summary: Método que permite obtener un rol de comida por su id
+      tags:
+      - Rol
+  /api/v1/user/rol/all:
+    get:
+      consumes:
+      - application/json
+      description: Método que permite obtener todas las categorías de comida
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/rol.ResponseAllRol'
+      summary: Método que permite obtener todas las categorías de comida
+      tags:
+      - Rol
+swagger: "2.0"
+tags:
+- description: Métodos referentes a las categorías de las comidas
+  name: Category
+- description: Métodos referentes a los ingredientes de las comidas
+  name: Ingredient
+- description: Métodos referentes a los productos
+  name: Product
+- description: Métodos referentes a los roles en las recetas
+  name: Rol
